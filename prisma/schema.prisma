@@ -10,12 +10,19 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+generator dbml {
+  provider      = "prisma-dbml-generator"
+  output        = "./dbml"
+  outputName    = "schema.dbml"
+  mapToDbSchema = false
+}
+
 model Region {
   id      String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   name    String
-  flag    String
+  icon    String
+  iso     String
   servers Server[]
-
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

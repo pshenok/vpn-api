@@ -2,7 +2,8 @@
 CREATE TABLE "regions" (
     "id" UUID NOT NULL DEFAULT gen_random_uuid(),
     "name" TEXT NOT NULL,
-    "flag" TEXT NOT NULL,
+    "icon" TEXT NOT NULL,
+    "iso" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 

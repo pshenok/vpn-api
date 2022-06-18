@@ -19,13 +19,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:LiquidSports/api-gateway.git"
+    "url": "https://github.com/pshenok/vpn-api"
   },
   "author": "pshenok",
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
     "@prisma/client": "3.15.2",
+    "@types/uuid": "^8.3.4",
     "awilix": "^6.1.0",
     "axios": "^0.27.2",
     "basic-auth": "^2.0.1",
@@ -33,10 +34,12 @@
     "core": "git@github.com:layereddd/core.git#main",
     "cors": "^2.8.5",
     "express": "^4.17.2",
+    "fast-safe-stringify": "^2.1.1",
     "helmet": "^5.0.2",
     "prisma": "^3.15.2",
     "reflect-metadata": "^0.1.13",
-    "swagger-ui-express": "^4.3.0"
+    "swagger-ui-express": "^4.3.0",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@types/basic-auth": "^1.1.3",
