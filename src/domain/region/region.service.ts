@@ -3,7 +3,7 @@ import { Region } from "./region.entity";
 import { IRegionRepository } from "./region.repository.i";
 
 export class RegionService {
-  constructor(private readonly regionRepository: IRegionRepository) { }
+  constructor(private regionRepository: IRegionRepository) { }
 
   public async list(): Promise<IListResult<Region>> {
     return this.regionRepository.list();

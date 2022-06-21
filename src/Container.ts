@@ -11,6 +11,10 @@ import { AuthType } from './api/auth/auth.types';
 import { DefaultAuthType } from 'core/lib/interfaces/auth.types';
 import { NoneAuth } from './api/auth/none.auth';
 import { BearerAuth } from './api/auth/bearer.auth';
+import { RegionController } from './api/controllers/region.controller';
+import { DB } from './infra/DB';
+import { RegionRepository } from './infra/region/region.repository';
+import { RegionService } from './domain/region/region.service';
 
 
 export class Container {
@@ -28,6 +32,13 @@ export class Container {
 			config: asClass(Config).singleton(),
 			logger: asClass(Logger).singleton(),
 			usage: asClass(Usage).singleton(),
+
+			// Infrastructure
+			db: asClass(DB).singleton(),
+			regionRepository: asClass(RegionRepository).singleton(),
+
+			// Domain
+			regionService: asClass(RegionService).singleton(),
 
 			// Interfaces
 			web: asClass(Web).singleton(),
@@ -47,12 +58,14 @@ export class Container {
 			controllersList: asValue([
 				container.build(ProbeController),
 				container.build(PingController),
+				container.build(RegionController),
 			]),
 		});
 
 		container.register({
 			initList: asValue([
 				container.build(Usage),
+				container.resolve('db'),
 				container.resolve('web'),
 			]),
 		});
