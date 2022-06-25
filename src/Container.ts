@@ -11,10 +11,13 @@ import { AuthType } from './api/auth/auth.types';
 import { DefaultAuthType } from 'core/lib/interfaces/auth.types';
 import { NoneAuth } from './api/auth/none.auth';
 import { BearerAuth } from './api/auth/bearer.auth';
-import { RegionController } from './api/controllers/region.controller';
 import { DB } from './infra/DB';
+import { RegionController } from './api/controllers/region.controller';
 import { RegionRepository } from './infra/region/region.repository';
 import { RegionService } from './domain/region/region.service';
+import { ServerRepository } from './infra/region/server.repository';
+import { ServerService } from './domain/server/server.service';
+import { ServerController } from './api/controllers/server.controller';
 
 
 export class Container {
@@ -36,9 +39,11 @@ export class Container {
 			// Infrastructure
 			db: asClass(DB).singleton(),
 			regionRepository: asClass(RegionRepository).singleton(),
+			serverRepository: asClass(ServerRepository).singleton(),
 
 			// Domain
 			regionService: asClass(RegionService).singleton(),
+			serverService: asClass(ServerService).singleton(),
 
 			// Interfaces
 			web: asClass(Web).singleton(),
@@ -59,6 +64,7 @@ export class Container {
 				container.build(ProbeController),
 				container.build(PingController),
 				container.build(RegionController),
+				container.build(ServerController),
 			]),
 		});
 
