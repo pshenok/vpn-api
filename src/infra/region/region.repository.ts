@@ -14,7 +14,11 @@ export class RegionRepository implements IRegionRepository {
 
   public async list(): Promise<IListResult<Region>> {
 
-    const regions = await this.db.client.region.findMany();
+    const regions = await this.db.client.region.findMany({
+      include: {
+        servers: true,
+      },
+    });
 
     if (!regions) {
       return {
