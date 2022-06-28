@@ -13,11 +13,14 @@ import { NoneAuth } from './api/auth/none.auth';
 import { BearerAuth } from './api/auth/bearer.auth';
 import { DB } from './infra/DB';
 import { RegionController } from './api/controllers/region.controller';
-import { RegionRepository } from './infra/region/region.repository';
+import { RegionRepository } from './infra/repository/region.repository';
 import { RegionService } from './domain/region/region.service';
-import { ServerRepository } from './infra/region/server.repository';
+import { ServerRepository } from './infra/repository/server.repository';
 import { ServerService } from './domain/server/server.service';
 import { ServerController } from './api/controllers/server.controller';
+import { UserRepository } from './infra/repository/user.repository';
+import { UserService } from './domain/user/user.service';
+import { UserController } from './api/controllers/user.controller';
 
 
 export class Container {
@@ -40,10 +43,12 @@ export class Container {
 			db: asClass(DB).singleton(),
 			regionRepository: asClass(RegionRepository).singleton(),
 			serverRepository: asClass(ServerRepository).singleton(),
+			userRepository: asClass(UserRepository).singleton(),
 
 			// Domain
 			regionService: asClass(RegionService).singleton(),
 			serverService: asClass(ServerService).singleton(),
+			userService: asClass(UserService).singleton(),
 
 			// Interfaces
 			web: asClass(Web).singleton(),
@@ -65,6 +70,7 @@ export class Container {
 				container.build(PingController),
 				container.build(RegionController),
 				container.build(ServerController),
+				container.build(UserController),
 			]),
 		});
 
