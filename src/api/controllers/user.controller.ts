@@ -23,7 +23,7 @@ export class UserController {
       200: joi.object(), // TODO: make it for swagger
     },
   })
-  public async listLeagues(req: Request): Promise<object> {
+  public async createUser(req: Request): Promise<object> {
     return this.userService.create(req.body.deviceId);
   }
 }
