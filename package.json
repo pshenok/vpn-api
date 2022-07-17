@@ -15,7 +15,12 @@
     "coverage": "jest --coverage",
     "lint": "eslint --quiet --ext ts,js .",
     "lint:fix": "eslint --fix --ext .ts .",
-    "core": "pnpm add core@git+git@github.com:layereddd/core.git#main"
+    "core": "pnpm add core@git+git@github.com:layereddd/core.git#main",
+    "db:generate": "npx prisma generate",
+    "db:validate": "npx prisma validate",
+    "db:migrate": "npx prisma migrate dev --name",
+    "db:reset": "npx prisma migrate reset --force",
+    "db:deploy": "npx prisma migrate deploy"
   },
   "repository": {
     "type": "git",
