@@ -31,6 +31,8 @@ Table Region {
 Table Server {
   id String [pk]
   ip String [not null]
+  username String [not null]
+  password String [not null]
   key String [not null]
   city String [not null]
   regionId String [not null]

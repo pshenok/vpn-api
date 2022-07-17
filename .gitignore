@@ -13,6 +13,7 @@ lerna-debug.log*
 
 # ENV
 .env
+pm2.json
 
 # OS
 .DS_Store

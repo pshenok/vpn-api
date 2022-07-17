@@ -60,6 +60,8 @@ model Region {
 model Server {
   id       String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   ip       String
+  username String
+  password String
   key      String
   city     String
   regionId String @db.Uuid
