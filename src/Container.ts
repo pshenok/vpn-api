@@ -21,6 +21,9 @@ import { ServerController } from './api/controllers/server.controller';
 import { UserRepository } from './infra/repository/user.repository';
 import { UserService } from './domain/user/user.service';
 import { UserController } from './api/controllers/user.controller';
+import { FeedbackController } from './api/controllers/feedback.controller';
+import { FeedbackRepository } from './infra/repository/feedback.repository';
+import { FeedbackService } from './domain/feedback/feedback.service';
 
 
 export class Container {
@@ -44,11 +47,13 @@ export class Container {
 			regionRepository: asClass(RegionRepository).singleton(),
 			serverRepository: asClass(ServerRepository).singleton(),
 			userRepository: asClass(UserRepository).singleton(),
+			feedbackRepository: asClass(FeedbackRepository).singleton(),
 
 			// Domain
 			regionService: asClass(RegionService).singleton(),
 			serverService: asClass(ServerService).singleton(),
 			userService: asClass(UserService).singleton(),
+			feedbackService: asClass(FeedbackService).singleton(),
 
 			// Interfaces
 			web: asClass(Web).singleton(),
@@ -71,6 +76,7 @@ export class Container {
 				container.build(RegionController),
 				container.build(ServerController),
 				container.build(UserController),
+				container.build(FeedbackController),
 			]),
 		});
 
